@@ -3,53 +3,99 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>在籍期間を、結果につながる時間に。</title>
+  <title>30分パーソナルトレーニング無料のご案内</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;background:#f3f4f6;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;color:#1f2937}
+    .stage{min-height:100vh;padding:40px 14px;background:
+      radial-gradient(circle at 15% 15%,rgba(194,22,66,.12),transparent 28%),
+      radial-gradient(circle at 85% 10%,rgba(6,199,85,.09),transparent 24%),
+      linear-gradient(180deg,#fafafa 0%,#f2f3f5 100%);overflow:hidden;position:relative}
+    .orb{position:fixed;border-radius:999px;filter:blur(2px);opacity:.5;pointer-events:none;animation:float 8s ease-in-out infinite}
+    .orb.one{width:180px;height:180px;background:rgba(194,22,66,.08);top:7%;left:-60px}
+    .orb.two{width:220px;height:220px;background:rgba(6,199,85,.06);right:-90px;top:28%;animation-delay:-2s}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(18px)}}
+    .mail{max-width:650px;margin:0 auto;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 24px 70px rgba(17,24,39,.13);animation:rise .7s ease both}
+    @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    .hero{position:relative;padding:38px 34px 40px;text-align:center;background:linear-gradient(125deg,#a70f35,#c21642 45%,#de315e);color:#fff;overflow:hidden}
+    .hero:before{content:"";position:absolute;inset:-80% -30%;background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,.14) 50%,transparent 60%);transform:translateX(-60%);animation:shine 4.5s ease-in-out infinite}
+    @keyframes shine{0%,55%{transform:translateX(-60%)}80%,100%{transform:translateX(60%)}}
+    .brand{position:relative;font-size:12px;letter-spacing:2.5px;font-weight:700;opacity:.92}
+    .eyebrow{position:relative;display:inline-block;margin-top:18px;padding:8px 14px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(255,255,255,.10);font-size:12px;font-weight:800;letter-spacing:.08em}
+    .hero h1{position:relative;margin:16px 0 0;font-size:32px;line-height:1.35;letter-spacing:.01em}
+    .hero p{position:relative;margin:12px auto 0;max-width:480px;font-size:14px;line-height:1.8;color:#ffe9ef}
+    .body{padding:34px}
+    .lead{font-size:16px;line-height:2;margin:0 0 24px}
+    .lead strong{color:#b3123a}
+    .offer{position:relative;margin:24px 0;padding:30px 22px;text-align:center;border-radius:20px;background:linear-gradient(180deg,#fff8fa,#fff);border:1px solid #f2ced8;box-shadow:0 12px 30px rgba(194,22,66,.08);overflow:hidden}
+    .offer:after{content:"FREE";position:absolute;right:-8px;top:-26px;font-size:74px;font-weight:900;letter-spacing:-.05em;color:rgba(194,22,66,.035)}
+    .offer-label{font-size:12px;font-weight:900;letter-spacing:.16em;color:#c21642}
+    .offer-main{margin-top:8px;font-size:42px;line-height:1.1;font-weight:900;color:#18181b}
+    .offer-main span{font-size:18px;font-weight:800;color:#c21642;margin-left:5px}
+    .offer-sub{margin-top:12px;font-size:14px;line-height:1.8;color:#666}
+    .mini-title{margin:30px 0 14px;font-size:18px;font-weight:900}
+    .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .benefit{padding:15px 10px;border-radius:14px;background:#f7f7f8;text-align:center;font-size:13px;font-weight:800;line-height:1.55;color:#343434;border:1px solid #ececef}
+    .benefit b{display:block;margin-bottom:4px;font-size:19px;color:#c21642}
+    .cta-wrap{margin-top:30px;text-align:center}
+    .cta{display:block;width:100%;padding:18px 22px;border-radius:14px;background:#06C755;color:#fff;text-decoration:none;font-size:17px;font-weight:900;box-shadow:0 12px 28px rgba(6,199,85,.25);transition:.2s ease;animation:pulse 2.8s ease-in-out infinite}
+    .cta:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(6,199,85,.32)}
+    @keyframes pulse{0%,100%{box-shadow:0 12px 28px rgba(6,199,85,.22)}50%{box-shadow:0 14px 36px rgba(6,199,85,.38)}}
+    .cta-note{margin-top:10px;font-size:12px;color:#777;line-height:1.7}
+    .trainer{margin-top:28px;padding-top:22px;border-top:1px solid #eee;display:flex;align-items:center;gap:14px}
+    .trainer-mark{width:52px;height:52px;flex:0 0 52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#c21642,#8f0e2f);color:#fff;font-size:20px;font-weight:900;box-shadow:0 8px 18px rgba(194,22,66,.22)}
+    .trainer-name{font-size:17px;font-weight:900}
+    .trainer-sub{margin-top:2px;font-size:12px;color:#777}
+    .foot{padding:20px 34px 28px;background:#fafafa;border-top:1px solid #eee;font-size:11px;line-height:1.8;color:#888;text-align:center}
+    @media(max-width:560px){
+      .stage{padding:18px 8px}.mail{border-radius:18px}.hero{padding:30px 20px 32px}.hero h1{font-size:27px}.body{padding:26px 20px}.benefits{grid-template-columns:1fr}.offer-main{font-size:37px}
+    }
+  </style>
 </head>
-<body style="margin:0;padding:0;background:#f3f3f3;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;color:#222222;">
-  <div style="display:none;max-height:0;overflow:hidden;opacity:0;">退会申請をキャンセルし、必須在籍期間まで継続される方へ。日下トレーナーの30分PTを1回無料でご案内します。</div>
-  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#f3f3f3;">
-    <tr><td align="center" style="padding:28px 12px;">
-      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:640px;background:#ffffff;border-radius:18px;overflow:hidden;">
-        <tr><td style="background:#c21642;padding:30px 34px 26px 34px;text-align:center;">
-          <div style="font-size:13px;letter-spacing:2px;color:#ffffff;opacity:.9;">JOYFIT24経堂</div>
-          <div style="font-size:28px;line-height:1.45;font-weight:800;color:#ffffff;margin-top:10px;">在籍期間を、<br>結果につながる時間に。</div>
-          <div style="font-size:15px;line-height:1.8;color:#ffeef3;margin-top:12px;">必須在籍期間まで継続される方へ<br>30分パーソナルトレーニング無料のご案内</div>
-        </td></tr>
-        <tr><td style="padding:34px 34px 8px 34px;">
-          <p style="margin:0 0 16px;font-size:16px;line-height:1.9;">○○様</p>
-          <p style="margin:0 0 16px;font-size:16px;line-height:1.9;">こんにちは。JOYFIT24経堂の<strong>日下トレーナー</strong>です。</p>
-          <p style="margin:0 0 16px;font-size:16px;line-height:1.9;">ご入会時のキャンペーン条件により、一定期間のご在籍が必要となっております。</p>
-          <p style="margin:0 0 20px;font-size:16px;line-height:1.9;">もし今回、退会申請を一度キャンセルして<strong>必須在籍期間まで継続</strong>される場合は、残りの期間を少しでも有効にご活用いただけるよう、<strong>30分のパーソナルトレーニングを1回無料</strong>でご案内いたします。</p>
-        </td></tr>
-        <tr><td style="padding:0 34px 28px 34px;">
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#fff7f9;border:1px solid #f2cad5;border-radius:16px;">
-            <tr><td style="padding:28px 24px;text-align:center;">
-              <div style="font-size:13px;font-weight:700;color:#c21642;letter-spacing:1px;">継続サポート特典</div>
-              <div style="font-size:32px;font-weight:800;color:#222222;margin-top:8px;">30分PT 無料</div>
-              <div style="font-size:15px;line-height:1.8;color:#555555;margin-top:10px;">対象：退会申請をキャンセルし、<br>必須在籍期間まで継続される方</div>
-            </td></tr>
-          </table>
-        </td></tr>
-        <tr><td style="padding:0 34px 10px 34px;">
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#fafafa;border:1px solid #eeeeee;border-radius:16px;">
-            <tr><td style="padding:22px 20px;">
-              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr>
-                <td width="112" valign="top" style="padding-right:18px;"><div style="width:92px;height:92px;border-radius:50%;background:#e8e8e8;border:3px solid #ffffff;box-shadow:0 1px 4px rgba(0,0,0,.08);text-align:center;line-height:92px;font-size:13px;color:#777777;font-weight:700;">PHOTO</div></td>
-                <td valign="top"><div style="font-size:14px;color:#c21642;font-weight:700;">担当トレーナー</div><div style="font-size:24px;color:#222222;font-weight:800;margin-top:4px;">日下 竜太</div><div style="font-size:14px;line-height:1.8;color:#555555;margin-top:8px;">運動初心者の方や、久しぶりに再スタートされる方でも安心して受けられるよう、その方に合わせて30分で分かりやすくサポートします。</div></td>
-              </tr></table>
-            </td></tr>
-          </table>
-        </td></tr>
-        <tr><td style="padding:24px 34px 10px 34px;">
-          <div style="font-size:19px;font-weight:800;color:#222222;margin-bottom:14px;">30分でこんなサポートができます</div>
-          <div style="font-size:15px;line-height:2;color:#333333;">✓ 今のトレーニング内容の見直し<br>✓ マシンの使い方・フォームの確認<br>✓ 目的に合わせたメニューの再提案<br>✓ 続けやすい運動習慣づくりのご相談</div>
-        </td></tr>
-        <tr><td align="center" style="padding:18px 34px 14px 34px;"><a href="#" style="display:block;background:#06C755;color:#ffffff;text-decoration:none;font-size:17px;font-weight:800;padding:17px 22px;border-radius:12px;">LINEを追加して無料30分PTを申し込む</a></td></tr>
-        <tr><td align="center" style="padding:0 34px 28px 34px;"><div style="font-size:13px;line-height:1.8;color:#666666;">※サンプルのためLINEリンクは未設定です。</div></td></tr>
-        <tr><td style="padding:0 34px 30px 34px;"><p style="margin:0;font-size:14px;line-height:1.9;color:#555555;">本特典は、退会申請をキャンセルし、キャンペーンの必須在籍期間まで継続される方を対象としたサポート特典です。<br>詳細条件につきましては、先にご案内しているメール内容をご確認ください。</p></td></tr>
-        <tr><td style="border-top:1px solid #eeeeee;padding:22px 34px 30px 34px;"><p style="margin:0;font-size:13px;line-height:1.8;color:#777777;">JOYFIT24経堂<br>日下 竜太<br>※サンプル表示です。</p></td></tr>
-      </table>
-    </td></tr>
-  </table>
+<body>
+  <div class="stage">
+    <div class="orb one"></div><div class="orb two"></div>
+    <main class="mail">
+      <section class="hero">
+        <div class="brand">JOYFIT24 経堂</div>
+        <div class="eyebrow">SPECIAL SUPPORT</div>
+        <h1>残りの在籍期間を、<br>もっと有効に。</h1>
+        <p>続ける期間を「ただ通う時間」ではなく、身体を変えるきっかけに。</p>
+      </section>
+
+      <section class="body">
+        <p class="lead">こんにちは。JOYFIT24経堂の<strong>日下トレーナー</strong>です。</p>
+        <p class="lead">退会申請を一度キャンセルして<strong>必須在籍期間まで継続</strong>される場合は、日下トレーナーが残りの期間を少しでも有効にご活用いただけるよう、<strong>30分のパーソナルトレーニングを1回無料</strong>でご案内いたします。</p>
+
+        <div class="offer">
+          <div class="offer-label">CONTINUE SUPPORT</div>
+          <div class="offer-main">30分PT <span>1回無料</span></div>
+          <div class="offer-sub">今の状態や目的に合わせて、短時間でも分かりやすくサポートします。</div>
+        </div>
+
+        <div class="mini-title">30分でできること</div>
+        <div class="benefits">
+          <div class="benefit"><b>01</b>フォーム確認</div>
+          <div class="benefit"><b>02</b>メニュー見直し</div>
+          <div class="benefit"><b>03</b>継続の相談</div>
+        </div>
+
+        <div class="cta-wrap">
+          <a class="cta" href="javascript:void(0)">LINEを追加して無料PTを申し込む</a>
+          <div class="cta-note">※サンプルのためLINEリンクは未設定です。</div>
+        </div>
+
+        <div class="trainer">
+          <div class="trainer-mark">日</div>
+          <div>
+            <div class="trainer-name">日下 竜太</div>
+            <div class="trainer-sub">JOYFIT24経堂 / パーソナルトレーナー</div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="foot">詳細な継続期間・キャンペーン条件については、別途お送りしているご案内メールをご確認ください。</footer>
+    </main>
+  </div>
 </body>
 </html>
